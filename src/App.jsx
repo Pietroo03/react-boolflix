@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
-import CountryFlag from 'react-country-flag'
+import Flag from 'react-country-flag'
 import './App.css'
 
 function App() {
@@ -37,7 +37,12 @@ function App() {
           <div className="movie" key={movie.id}>
             <h1>{movie.title}</h1>
             <h4>{movie.original_title}</h4>
-            <div>{movie.original_language}</div>
+
+            <Flag
+              countryCode={movie.original_language}
+              style={{ width: 30, height: 30 }}>
+            </Flag>
+
             <div>{movie.vote_average}</div>
           </div>
         ))}
