@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
+import CountryFlag from 'react-country-flag'
 import './App.css'
 
 function App() {
