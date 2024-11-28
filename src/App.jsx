@@ -7,17 +7,28 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('')
   const { movies, fetchMovies } = useContext(MyContext)
 
+  function handleInput(e) {
+    dataSearch = e.target.value
+    setSearchQuery(dataSearch)
+  }
+
+  function handleSubmit() {
+    if (searchQuery !== '') {
+      fetchMovies(searchQuery)
+    }
+  }
+
   return (
     <>
       <div className='input-search'>
         <input
           type="text"
-          value={ }
-          onChange={ }
+          value={searchQuery}
+          onChange={handleInput}
           placeholder='Cerca un film...'
         />
 
-        <button type='submit' onClick={ }>Cerca</button>
+        <button type='submit' onClick={handleSubmit}>Cerca</button>
       </div>
     </>
   )
