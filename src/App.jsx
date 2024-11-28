@@ -1,7 +1,11 @@
+import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
 import './App.css'
 
 function App() {
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const { movies, fetchMovies } = useContext(MyContext)
 
   return (
     <>
