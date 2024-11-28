@@ -50,7 +50,7 @@ function App() {
             <h4>{movie.original_title}</h4>
 
             <Flag
-              countryCode={languageFlag[movie.original_language] || UN}
+              countryCode={languageFlag[movie.original_language] || ''}
               style={{ width: 30, height: 30 }}
             />
 
