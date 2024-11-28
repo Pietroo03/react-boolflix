@@ -5,7 +5,7 @@ import './App.css'
 function App() {
 
   const [searchQuery, setSearchQuery] = useState('')
-  const { fetchMovies } = useContext(MyContext)
+  const { movies, fetchMovies } = useContext(MyContext)
 
   function handleInput(e) {
     const dataSearch = e.target.value
@@ -29,6 +29,17 @@ function App() {
         />
 
         <button type='submit' onClick={handleSubmit}>Cerca</button>
+      </div>
+
+      <div className='list-movies'>
+        {movies.map((movie) => (
+          <div className="movie" key={movie.id}>
+            <h1>{movie.title}</h1>
+            <h4>{movie.original_title}</h4>
+            <div>{movie.original_language}</div>
+            <div>{movie.vote_average}</div>
+          </div>
+        ))}
       </div>
     </>
   )
