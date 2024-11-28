@@ -48,6 +48,9 @@ function App() {
         {movies.map((movie) => (
           <div className="movie" key={movie.id}>
             <h1>{movie.title}</h1>
+            <div>
+              <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="" />
+            </div>
             <h4>{movie.original_title}</h4>
             <div>
               <Flag code={languageFlag[movie.original_language] || null} style={{ width: 30, height: 30 }} />
@@ -62,6 +65,10 @@ function App() {
         {tvSeries.map((tvSerie) => (
           <div className="tv-serie" key={tvSerie.id}>
             <h1>{tvSerie.name}</h1>
+            <div>
+
+              <img src={`https://image.tmdb.org/t/p/w342${tvSerie.poster_path}`} alt="" />
+            </div>
             <h4>{tvSerie.original_name}</h4>
             <div>
               <Flag code={languageFlag[tvSerie.original_language] || null} style={{ width: 30, height: 30 }} />
