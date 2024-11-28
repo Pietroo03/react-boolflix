@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
-import Flag from 'react-country-flag'
-import { IT, US, FR, ES, JP, GB, DE, CN, KR, RU } from 'country-flag-icons/react/3x2'
+import Flag from 'react-world-flags'
 import './App.css'
 
 function App() {
@@ -21,16 +20,14 @@ function App() {
   }
 
   const languageFlag = {
-    'it': IT,
-    'en': US,
-    'fr': FR,
-    'es': ES,
-    'ja': JP,
-    'gb': GB,
-    'de': DE,
-    'cn': CN,
-    'ko': KR,
-    'ru': RU
+    en: 'US',
+    it: 'IT',
+    fr: 'FR',
+    es: 'ES',
+    de: 'DE',
+    ja: 'JP',
+    zh: 'CN',
+    ko: 'KR'
   };
 
   return (
@@ -53,7 +50,7 @@ function App() {
             <h4>{movie.original_title}</h4>
 
             <Flag
-              countryCode={languageFlag[movie.original_language] || 'UN'}
+              countryCode={languageFlag[movie.original_language] || UN}
               style={{ width: 30, height: 30 }}
             />
 
