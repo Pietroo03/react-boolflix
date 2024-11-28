@@ -6,7 +6,7 @@ import './App.css'
 function App() {
 
   const [searchQuery, setSearchQuery] = useState('')
-  const { movies, fetchMovies } = useContext(MyContext)
+  const { movies, fetchMovies, tvSeries, fetchTvSeries } = useContext(MyContext)
 
   function handleInput(e) {
     const dataSearch = e.target.value
@@ -16,6 +16,7 @@ function App() {
   function handleSubmit() {
     if (searchQuery !== '') {
       fetchMovies(searchQuery)
+      fetchTvSeries(searchQuery)
     }
   }
 
@@ -56,6 +57,21 @@ function App() {
           </div>
         ))}
       </div>
+
+      <div className='list-tvSeries'>
+        {tvSeries.map((tvSerie) => (
+          <div className="tv-serie" key={tvSerie.id}>
+            <h1>{tvSerie.name}</h1>
+            <h4>{tvSerie.original_name}</h4>
+            <div>
+              <Flag code={languageFlag[tvSerie.original_language] || null} style={{ width: 30, height: 30 }} />
+            </div>
+
+            <div>{tvSerie.vote_average}</div>
+          </div>
+        ))}
+      </div>
+
     </>
   )
 }
