@@ -5,11 +5,15 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='input-search'>
         <input
           type="text"
           value={ }
+          onChange={ }
+          placeholder='Cerca un film...'
         />
+
+        <button type='submit' onClick={ }>Cerca</button>
       </div>
     </>
   )
