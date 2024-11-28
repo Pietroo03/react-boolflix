@@ -53,6 +53,8 @@ function App() {
             <h4>{movie.original_title}</h4>
 
             <Flag
+              countryCode={languageFlag[movie.original_language] || 'UN'}
+              style={{ width: 30, height: 30 }}
             />
 
             <div>{movie.vote_average}</div>
