@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
 import Flag from 'react-country-flag'
+import { IT, US, FR, ES, JP, GB, DE, CN, KR, RU } from 'country-flag-icons/react/3x2'
 import './App.css'
 
 function App() {
@@ -18,6 +19,19 @@ function App() {
       fetchMovies(searchQuery)
     }
   }
+
+  const languageFlag = {
+    'it': IT,
+    'en': US,
+    'fr': FR,
+    'es': ES,
+    'ja': JP,
+    'gb': GB,
+    'de': DE,
+    'cn': CN,
+    'ko': KR,
+    'ru': RU
+  };
 
   return (
     <>
@@ -39,9 +53,7 @@ function App() {
             <h4>{movie.original_title}</h4>
 
             <Flag
-              countryCode={movie.original_language}
-              style={{ width: 30, height: 30 }}>
-            </Flag>
+            />
 
             <div>{movie.vote_average}</div>
           </div>
