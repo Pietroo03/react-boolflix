@@ -5,10 +5,10 @@ import './App.css'
 function App() {
 
   const [searchQuery, setSearchQuery] = useState('')
-  const { movies, fetchMovies } = useContext(MyContext)
+  const { fetchMovies } = useContext(MyContext)
 
   function handleInput(e) {
-    dataSearch = e.target.value
+    const dataSearch = e.target.value
     setSearchQuery(dataSearch)
   }
 

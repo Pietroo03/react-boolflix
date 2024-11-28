@@ -3,7 +3,6 @@ import { createContext, useState } from "react";
 export const MyContext = createContext()
 
 const API_KEY = import.meta.env.VITE_API_KEY
-console.log(API_KEY)
 
 const URL_movie = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`
 
