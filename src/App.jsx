@@ -48,11 +48,10 @@ function App() {
           <div className="movie" key={movie.id}>
             <h1>{movie.title}</h1>
             <h4>{movie.original_title}</h4>
+            <div>
 
-            <Flag
-              countryCode={languageFlag[movie.original_language] || ''}
-              style={{ width: 30, height: 30 }}
-            />
+              <Flag countryCode={languageFlag[movie.original_language] || ''} style={{ width: 30, height: 30 }} />
+            </div>
 
             <div>{movie.vote_average}</div>
           </div>
