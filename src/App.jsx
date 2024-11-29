@@ -58,7 +58,7 @@ function App() {
               type="text"
               value={searchQuery}
               onChange={handleInput}
-              placeholder='Cerca un film...'
+              placeholder='Cerca film o serie TV...'
             />
             <div className='ps-4'>
               <button type='submit' onClick={handleSubmit} className='btn btn-secondary ms-2'>Cerca</button>
@@ -69,44 +69,68 @@ function App() {
       </header>
 
       <main>
-        <div className='list-movies'>
-          {movies.map((movie) => (
+        <div className="container">
+          <div className="mb-5">
+            <h1>Film</h1>
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+              {movies.map((movie) => (
 
-            <div className="movie" key={movie.id}>
-              <h1>{movie.title}</h1>
-              <div>
-                <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="" />
-              </div>
-              <h4>{movie.original_title}</h4>
-              <div>
-                <Flag code={languageFlag[movie.original_language] || null} style={{ width: 30, height: 30 }} />
-              </div>
-
-              <span className='ms-2'>{Math.round(movie.vote_average / 2)}</span>
-              <span> {renderstars(movie.vote_average)}</span>
+                <div className="movie col" key={movie.id}>
+                  <div className="card h-100">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                      alt=""
+                      className='card-img-top'
+                      style={{ height: '500px', objectFit: 'cover' }}
+                    />
+                    <div className="card-body">
+                      <h4 className='card-title'>{movie.title}</h4>
+                      <h6 className='card-subtitle mb-2 text-muted'>{movie.original_title}</h6>
+                      <div>
+                        <Flag code={languageFlag[movie.original_language] || null} style={{ width: 30, height: 30 }} />
+                      </div>
+                      <div className="d-flex align-items-center">
+                        <span className='ms-2'>{Math.round(movie.vote_average / 2)}</span>
+                        <span> {renderstars(movie.vote_average)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className='list-tvSeries'>
-          {tvSeries.map((tvSerie) => (
-            <div className="tv-serie" key={tvSerie.id}>
-              <h1>{tvSerie.name}</h1>
-              <div>
+          <div className="mb-5">
+            <h1>Serie Tv</h1>
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+              {tvSeries.map((tvSerie) => (
 
-                <img src={`https://image.tmdb.org/t/p/w342${tvSerie.poster_path}`} alt="" />
-              </div>
-              <h4>{tvSerie.original_name}</h4>
-              <div>
-                <Flag code={languageFlag[tvSerie.original_language] || null} style={{ width: 30, height: 30 }} />
-              </div>
-
-              <span className='ms-2'>{Math.round(tvSerie.vote_average / 2)}</span>
-              <span> {renderstars(tvSerie.vote_average)}</span>
+                <div className="tvSerie col" key={tvSerie.id}>
+                  <div className="card h-100">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w342${tvSerie.poster_path}`}
+                      alt=""
+                      className='card-img-top'
+                      style={{ height: '500px', objectFit: 'cover' }}
+                    />
+                    <div className="card-body">
+                      <h4 className='card-title'>{tvSerie.title}</h4>
+                      <h6 className='card-subtitle mb-2 text-muted'>{tvSerie.original_title}</h6>
+                      <div>
+                        <Flag code={languageFlag[tvSerie.original_language] || null} style={{ width: 30, height: 30 }} />
+                      </div>
+                      <div className="d-flex align-items-center">
+                        <span className='ms-2'>{Math.round(tvSerie.vote_average / 2)}</span>
+                        <span> {renderstars(tvSerie.vote_average)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
+        </div>
       </main>
 
     </>
