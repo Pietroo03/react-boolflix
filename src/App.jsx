@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { MyContext } from './context/MyContext'
+import AppHeader from './components/AppHeader'
 import Flag from 'react-world-flags'
 import './App.css'
 
@@ -49,26 +50,7 @@ function App() {
   return (
     <>
 
-      <header className='fixed-top'>
-        <div className='input-search p-4 d-flex align-items-center justify-content-between'>
-          <div>
-            <img src="/logo.png" alt="" />
-          </div>
-          <div className='d-flex'>
-            <input
-              className='form-control w-auto'
-              type="text"
-              value={searchQuery}
-              onChange={handleInput}
-              placeholder='Cerca film o serie TV...'
-            />
-            <div className='ps-4'>
-              <button type='submit' onClick={handleSubmit} className='ms-2'>Cerca</button>
-            </div>
-          </div>
-        </div>
-
-      </header>
+      <AppHeader handleInput={handleInput} handleSubmit={handleSubmit} searchQuery={searchQuery} />
 
       <main>
         <div className="container">
