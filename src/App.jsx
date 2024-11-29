@@ -47,10 +47,10 @@ function App() {
   return (
     <>
 
-      <header>
-        <div className='input-search m-4 d-flex align-items-center justify-content-between'>
+      <header className='fixed-top'>
+        <div className='input-search p-4 d-flex align-items-center justify-content-between'>
           <div>
-            <h1>LOGO</h1>
+            <img src="/logo.png" alt="" />
           </div>
           <div className='d-flex'>
             <input
@@ -61,7 +61,7 @@ function App() {
               placeholder='Cerca film o serie TV...'
             />
             <div className='ps-4'>
-              <button type='submit' onClick={handleSubmit} className='btn btn-secondary ms-2'>Cerca</button>
+              <button type='submit' onClick={handleSubmit} className='ms-2'>Cerca</button>
             </div>
           </div>
         </div>
@@ -76,22 +76,25 @@ function App() {
               {movies.map((movie) => (
 
                 <div className="movie col" key={movie.id}>
-                  <div className="card h-100">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-                      alt=""
-                      className='card-img-top'
-                      style={{ height: '500px', objectFit: 'cover' }}
-                    />
-                    <div className="card-body">
-                      <h4 className='card-title'>{movie.title}</h4>
-                      <h6 className='card-subtitle mb-2 text-muted'>{movie.original_title}</h6>
+                  <div className="card movie-card h-100">
+                    <div className='movie-img-container'>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                        alt=""
+                        className='card-img-top movie-img'
+                        style={{ height: '500px', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="card-body movie-info">
+                      <h3 className='card-title'>{movie.title}</h3>
+                      <h6 className='card-subtitle mb-2'>{movie.original_title}</h6>
+                      <div style={{ overflowX: 'hidden' }}>{movie.overview}</div>
                       <div>
                         <Flag code={languageFlag[movie.original_language] || null} style={{ width: 30, height: 30 }} />
                       </div>
                       <div className="d-flex align-items-center">
                         <span className='ms-2'>{Math.round(movie.vote_average / 2)}</span>
-                        <span> {renderstars(movie.vote_average)}</span>
+                        <span className='ps-2'> {renderstars(movie.vote_average)}</span>
                       </div>
                     </div>
                   </div>
@@ -106,22 +109,25 @@ function App() {
               {tvSeries.map((tvSerie) => (
 
                 <div className="tvSerie col" key={tvSerie.id}>
-                  <div className="card h-100">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w342${tvSerie.poster_path}`}
-                      alt=""
-                      className='card-img-top'
-                      style={{ height: '500px', objectFit: 'cover' }}
-                    />
-                    <div className="card-body">
-                      <h4 className='card-title'>{tvSerie.title}</h4>
-                      <h6 className='card-subtitle mb-2 text-muted'>{tvSerie.original_title}</h6>
+                  <div className="card tvSerie-card h-100">
+                    <div className='tvSerie-img-container'>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w342${tvSerie.poster_path}`}
+                        alt=""
+                        className='card-img-top tvSerie-img'
+                        style={{ height: '500px', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="card-body tvSerie-info">
+                      <h3 className='card-title'>{tvSerie.title}</h3>
+                      <h6 className='card-subtitle mb-2'>{tvSerie.original_title}</h6>
+                      <div>{tvSerie.overview}</div>
                       <div>
                         <Flag code={languageFlag[tvSerie.original_language] || null} style={{ width: 30, height: 30 }} />
                       </div>
                       <div className="d-flex align-items-center">
                         <span className='ms-2'>{Math.round(tvSerie.vote_average / 2)}</span>
-                        <span> {renderstars(tvSerie.vote_average)}</span>
+                        <span className='ps-2'> {renderstars(tvSerie.vote_average)}</span>
                       </div>
                     </div>
                   </div>

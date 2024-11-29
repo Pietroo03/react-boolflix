@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(229, 9, 20, 1) 93%, rgba(254, 21, 21, 1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+header {
+    background-color: black;
+}
+
+button {
+    background-color: #DB202C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px !important;
+    transition: background-color 0.3 ease;
+}
+
+main {
+    margin-top: 135px;
+}
+
+.movie-card,
+.tvSerie-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-img-container,
+.tvSerie-img-container {
+    position: relative;
+}
+
+.movie-img,
+.tvSerie-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.movie-info,
+.tvSerie-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    opacity: 0;
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover .movie-info,
+.card:hover .tvSerie-info {
+    opacity: 1;
+    background-color: black;
+    color: white;
+}
+
+.card:hover .movie-img,
+.card:hover .tvSerie-img {
+    opacity: 0.3;
+}
