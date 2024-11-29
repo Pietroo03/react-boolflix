@@ -43,8 +43,6 @@ function App() {
 
       <AppMain showTitle={showTitle} movies={movies} tvSeries={tvSeries} renderstars={renderstars} />
 
-
-
     </>
   )
 }

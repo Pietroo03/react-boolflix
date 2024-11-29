@@ -1,4 +1,5 @@
 export default function AppHeader({ searchQuery, handleInput, handleSubmit }) {
+
     return (
         <header className='fixed-top'>
             <div className='input-search p-4 d-flex align-items-center justify-content-between'>
@@ -18,7 +19,6 @@ export default function AppHeader({ searchQuery, handleInput, handleSubmit }) {
                     </div>
                 </div>
             </div>
-
         </header>
     )
 }

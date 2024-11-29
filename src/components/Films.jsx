@@ -1,4 +1,5 @@
 export default function Films({ movies, renderstars, languageFlag, Flag }) {
+
     return (
         <div className="mb-5">
             <h1 className='text-white'>Film</h1>
